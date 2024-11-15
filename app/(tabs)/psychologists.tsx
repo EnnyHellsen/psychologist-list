@@ -15,8 +15,8 @@ export default function TabTwoScreen() {
           style={styles.headerImage}
         />
       }>
-
     <ThemedText type="title">Find a Psychologist</ThemedText>
+    
     </ParallaxScrollView>
   );
 }
