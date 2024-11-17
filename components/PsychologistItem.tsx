@@ -2,19 +2,23 @@ import React from 'react';
 import { View, Text, TextProps, StyleSheet, Image } from 'react-native';
 
 export type PsychologistItemProps = TextProps & {
-  name: string,
-  image: string,
-  description: string
+  item: {
+    psychologistId: number
+    firstName: string,
+    lastName: string,
+    headline: string
+    thumbnail: string,
+  }
 }
 
-export const PsychologistItem = ({name, image, description}: PsychologistItemProps) => (
+export const PsychologistItem = ({item}: PsychologistItemProps) => (
   <View style={styles.item}>
     <Image
-      source={{ uri: image}}
+      source={{ uri: item.thumbnail}}
       style={styles.image}
     />
-    <Text style={styles.name}>{name}</Text>
-    <Text style={styles.description}>{description}</Text>
+    <Text style={styles.name}>{`${item.firstName} ${item.lastName}`}</Text>
+    <Text style={styles.description}>{item.headline}</Text>
   </View>
 )
 
