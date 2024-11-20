@@ -8,24 +8,36 @@ export type PsychologistItemProps = TextProps & {
     lastName: string,
     headline: string
     thumbnail: string,
+    startsAt: number
   }
 }
 
-export const PsychologistItem = ({item}: PsychologistItemProps) => (
-  <View style={styles.item}>
-    <Image
-      source={{ uri: item.thumbnail}}
-      style={styles.image}
-    />
-    <Text style={styles.name}>{`${item.firstName} ${item.lastName}`}</Text>
-    <Text style={styles.description}>{item.headline}</Text>
-  </View>
-)
+export const PsychologistItem = ({item}: PsychologistItemProps) => {
+  const date = new Date(item.startsAt)
+
+  return (
+    <View style={styles.item}>
+      <Image
+        source={{ uri: item.thumbnail}}
+        style={styles.image}
+      />
+      <View>
+        <Text style={styles.name}>{`${item.firstName} ${item.lastName}`}</Text>
+        <Text style={styles.description}>{item.headline}</Text>
+        <Text>Next time: {date.toLocaleString()}</Text>
+      </View>
+    </View>
+  )
+}
 
 const styles = StyleSheet.create({
   item: {
-    padding: 15,
-    marginVertical: 8,
+    display: 'flex',
+    gap: 16,
+    alignItems: 'center',
+    flexDirection: 'row',
+    marginVertical: 10,
+    paddingVertical: 16,
     backgroundColor: '#fff',
     borderRadius: 5,
     shadowColor: '#000',
@@ -34,7 +46,9 @@ const styles = StyleSheet.create({
     elevation: 3,
   },
   image: {
-    width: 300,
+    width: 70,
+    height: 70,
+    borderRadius: 100,
   },
   name: {
     fontSize: 16,

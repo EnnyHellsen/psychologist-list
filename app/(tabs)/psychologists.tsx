@@ -1,4 +1,4 @@
-import { StyleSheet, FlatList } from 'react-native';
+import { StyleSheet, FlatList, Image } from 'react-native';
 import { useState, useEffect } from 'react'
 import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText'
@@ -31,11 +31,9 @@ export default function PsychologistsScreen() {
     <ParallaxScrollView
       headerBackgroundColor={{ light: '#D0D0D0', dark: '#353636' }}
       headerImage={
-        <IconSymbol
-          size={310}
-          color="#808080"
-          name="person.fill"
-          style={styles.headerImage}
+        <Image
+          source={require('@/assets/images/psychologists-mindler.jpg')}
+          style={styles.image}
         />
       }>
     <ThemedText type="title">Find a Psychologist</ThemedText>
@@ -54,18 +52,8 @@ export default function PsychologistsScreen() {
 }
 
 const styles = StyleSheet.create({
-  headerImage: {
-    color: '#000',
-    bottom: -90,
-    left: -35,
-    position: 'absolute',
-  },
-  titleContainer: {
-    flexDirection: 'row',
-    gap: 8,
-  },
-  title: {
-    fontSize: 32,
-    fontWeight: 700,
-  },
+  image: {
+    height: '100%',
+    width: '100%',
+  }
 });

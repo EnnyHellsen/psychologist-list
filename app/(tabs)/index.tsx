@@ -12,7 +12,7 @@ export default function HomeScreen() {
       headerImage={
         <Image
           source={require('@/assets/images/home-header-mindler.jpg')}
-          style={styles.reactLogo}
+          style={styles.image}
         />
       }>
       <ThemedText type="title">Welcome!</ThemedText>
@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
     gap: 8,
     marginBottom: 8,
   },
-  reactLogo: {
+  image: {
     height: '100%',
     width: '100%',
   },
